@@ -7,16 +7,8 @@ module.exports = {
 }
 
 function newTicket(req, res) {
-    Flight.findById(req.params.id, function(err,flight) {
-        res.render(`/tickets/new`);
-})};
+    var ticket = new Ticket(req.body)
     
 
 function create(req, res) {
-    Flight.findById(req.params.id, function(err,flight) {
-        Ticket.flight.push(req.body);
-        flight.save(function(err) {
-            res.redirect(`/flights/${flight._id}`);
-        });
-    });
-}
+    
